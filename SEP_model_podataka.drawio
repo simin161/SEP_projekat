@@ -1,0 +1,1330 @@
+<mxfile host="Electron" agent="Claude" pages="4">
+  <diagram id="p5" name="1. Model podataka: parking_db">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1060" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p5-1" value="Model podataka: parking_db (Parking servis, PostgreSQL)" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-2" value="app_user" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-3" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-4" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;email varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-5" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;password_hash varchar (bcrypt/argon2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-6" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;full_name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-7" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;role varchar (DRIVER)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-8" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;notify_before_min int (podrazumevano 5)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-9" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-2">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-10" value="vehicle" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="70" width="270" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-11" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-10">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-12" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;user_id → app_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-10">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-13" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;plate_number varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-10">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-14" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;label varchar (opciono)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-10">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-15" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;(user_id, plate_number)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-10">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-16" value="zone" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-17" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-18" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;code varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-19" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-20" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;location varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-21" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-22" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;max_duration_min int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-23" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;active boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-16">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-24" value="zone_rule" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="70" width="270" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-25" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/span&gt;zone_id → zone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-26" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;min_duration_min int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-27" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;step_min int (dozvoljeni interval)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-28" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;billing_from time" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-29" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;billing_to time" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-30" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;extensions_allowed boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-31" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;max_extensions int (NULL = bez granice)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-32" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;max_extension_min int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-24">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-33" value="tariff" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="70" width="270" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-34" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-33">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-35" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;zone_id → zone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-33">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-36" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;time_from time" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-33">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-37" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;time_to time" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-33">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-38" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;price_per_hour numeric(12,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-33">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-39" value="parking_session" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="330" width="270" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-40" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-41" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;user_id → app_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-42" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;vehicle_id → vehicle" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-43" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;zone_id → zone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-44" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (ACTIVE | EXPIRED_PENDING_EXTENSION | EXPIRED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-45" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;start_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-46" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;end_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-47" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;extensions_count int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-48" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;version bigint (@Version)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-49" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-39">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-50" value="scheduled_notification" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="330" width="270" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-51" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-50">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-52" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;FK session_id → parking_session" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-50">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-53" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;send_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-50">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-54" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (PENDING | SENT | FAILED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-50">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-55" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;attempts int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-50">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-56" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;sent_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-50">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-57" value="parking_order" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="650" width="270" height="314" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-58" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-59" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;user_id → app_user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-60" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;vehicle_id → vehicle" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-61" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;zone_id → zone" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-62" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;session_id → parking_session (NULL do aktivacije)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-63" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;type varchar (INITIAL | EXTENSION)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-64" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (PENDING_PAYMENT … REFUNDED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-65" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;duration_min int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-66" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(12,2) (zamrznut iznos)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-67" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-68" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;merchant_order_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-69" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;psp_payment_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="224" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-70" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;global_transaction_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="242" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-71" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expires_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="260" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-72" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="278" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-73" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-57">
+          <mxGeometry x="0" y="296" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-74" value="extension" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="650" width="270" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-75" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-76" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;session_id → parking_session" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-77" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;FK order_id → parking_order" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-78" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;duration_min int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-79" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;previous_end_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-80" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;initiated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-81" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (PENDING | APPLIED | REJECTED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-82" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-74">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-83" value="status_change" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="650" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-84" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id bigserial" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-85" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;entity_type varchar (ORDER | SESSION | EXTENSION)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-86" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;entity_id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-87" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;from_status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-88" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;to_status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-89" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;reason varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-90" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;changed_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-83">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-91" value="webhook_inbox" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="650" width="270" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-92" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;event_id varchar (eventId iz PSP-a)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-91">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-93" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;type varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-91">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-94" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;psp_payment_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-91">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-95" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;received_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-91">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-96" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;processed_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p5-91">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-97" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-2" target="p5-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-98" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-2" target="p5-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-99" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-10" target="p5-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-100" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-16" target="p5-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-101" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERmandOne;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-16" target="p5-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-102" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERoneToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-16" target="p5-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-103" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-16" target="p5-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-104" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-10" target="p5-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-105" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-2" target="p5-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-106" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-39" target="p5-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-107" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-39" target="p5-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-108" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-57" target="p5-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-109" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p5-39" target="p5-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-110" value="&lt;b&gt;Napomene&lt;/b&gt;&lt;br&gt;• Cena i trajanje se kopiraju u &lt;i&gt;parking_order&lt;/i&gt; pri kreiranju (zamrznut iznos). Posle plaćanja vozilo, zonu, početak, kraj, iznos, valutu i ID transakcije čitamo iz &lt;i&gt;parking_session&lt;/i&gt; + &lt;i&gt;parking_order&lt;/i&gt; (sep-04 §41).&lt;br&gt;• Sesija se kreira tek posle potvrde plaćanja, zato je &lt;i&gt;parking_order.session_id&lt;/i&gt; prazan za INITIAL narudžbinu dok se ne aktivira (sep-04 §41, sep-05 §59).&lt;br&gt;• Paralelno produženje: &lt;i&gt;CREATE UNIQUE INDEX ON extension(session_id) WHERE status='PENDING'&lt;/i&gt; + &lt;i&gt;@Version&lt;/i&gt; na sesiji (sep-05 §60).&lt;br&gt;• &lt;i&gt;previous_end_at&lt;/i&gt; i &lt;i&gt;initiated_at&lt;/i&gt; čuvaju trenutak inicijalizacije produženja; po pravilu iz sep-05 §60 on odlučuje kako se računa novi kraj.&lt;br&gt;• &lt;i&gt;scheduled_notification&lt;/i&gt; ima jedan red po sesiji; produženje menja &lt;i&gt;send_at&lt;/i&gt; (sep-04 §42). Planer bira redove sa &lt;i&gt;FOR UPDATE SKIP LOCKED&lt;/i&gt;.&lt;br&gt;• &lt;i&gt;status_change&lt;/i&gt; je trag svih promena statusa (sep-04 §50, tačka 7).&lt;br&gt;• &lt;i&gt;webhook_inbox&lt;/i&gt;: PK po &lt;i&gt;eventId&lt;/i&gt; čini prijem webhook-a idempotentnim; &lt;i&gt;psp_payment_id&lt;/i&gt; je logička veza sa psp_db (nema FK između baza)." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="330" width="620" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-111" value="&lt;b&gt;Legenda&lt;/b&gt;&lt;br&gt;PK primarni ključ · FK strani ključ · UQ jedinstvena vrednost&lt;br&gt;Veza: jedna linija = „jedan“, vilica = „mnogo“, kružić = „može da ne postoji“" style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="620" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-112" value="Izvori: zahtevi sep-04 §41–§42, §50; dizajn sep-05 §57–§61. Tipovi kolona su predlog (nisu deo dizajna)." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="990" width="900" height="34" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p6" name="2. Model podataka: psp_db">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1160" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p6-1" value="Model podataka: psp_db (PSP core, PostgreSQL)" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-2" value="psp_user" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="270" height="224" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-3" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-4" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;merchant_id → merchant (NULL = super admin)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-5" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;email varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-6" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;password_hash varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-7" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;role varchar (SUPER_ADMIN | MERCHANT_ADMIN)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-8" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;must_change_password boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-9" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;mfa_enabled boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-10" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;mfa_secret_enc bytea" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-11" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;last_totp_step bigint (zaštita od replay-a)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-12" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;failed_logins int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-13" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;locked_until timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-2">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-14" value="merchant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="70" width="270" height="224" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-15" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-16" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;merchant_id varchar (ide u zahtev)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-17" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-18" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;api_secret_enc bytea (HMAC ključ)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-19" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (ACTIVE | SUSPENDED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-20" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;webhook_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-21" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;success_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-22" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;failed_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-23" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;error_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-24" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;rate_limit_per_min int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-25" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-14">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-26" value="merchant_method" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="270" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-27" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/span&gt;merchant_id → merchant" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-26">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-28" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/span&gt;method_id → payment_method" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-26">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-29" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;active boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-26">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-30" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;provider_merchant_id varchar (MERCHANT_ID kod banke)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-26">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-31" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;config_enc bytea" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-26">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-32" value="payment_method" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="70" width="270" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-33" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-32">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-34" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;code varchar (CARD, IPS_QR, PAYPAL, CRYPTO)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-32">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-35" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-32">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-36" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;plugin_id → plugin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-32">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-37" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currencies varchar[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-32">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-38" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;active boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-32">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-39" value="plugin" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="70" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-40" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-41" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;code varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-42" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;base_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-43" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;mtls_cert_fingerprint varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-44" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;version varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-45" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (ACTIVE | DISABLED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-46" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;registered_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-39">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-47" value="idempotency_key" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-48" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/span&gt;merchant_id → merchant" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-49" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;idem_key varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-50" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;request_hash varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-51" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;payment_id → payment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-52" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;response_status int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-53" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;response_body jsonb" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-54" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-47">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-55" value="payment" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="270" height="296" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-56" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid (paymentId)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-57" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;merchant_id → merchant" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-58" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;merchant_order_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-59" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(12,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-60" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-61" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (CREATED … EXPIRED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-62" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;merchant_timestamp timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-63" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;success_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-64" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;failed_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-65" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;error_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-66" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;checkout_token_hash varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-67" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expires_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="224" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-68" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="242" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-69" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="260" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-70" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;(merchant_id, merchant_order_id)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-55">
+          <mxGeometry x="0" y="278" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-71" value="payment_attempt" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="340" width="270" height="332" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-72" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid (attemptId)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-73" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;payment_id → payment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-74" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;method_id → payment_method" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-75" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (INITIATED … UNKNOWN)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-76" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;stan bigint (generiše PSP)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-77" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;psp_timestamp timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-78" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(12,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-79" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-80" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;provider_amount numeric(38,18)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-81" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;provider_currency varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-82" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;fx_rate_id → fx_rate (zaključan kurs)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-83" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;provider_ref varchar (PAYMENT_ID / order id / tx hash)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="224" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-84" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;global_transaction_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="242" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-85" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expires_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="260" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-86" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;last_checked_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="278" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-87" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="296" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-88" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-71">
+          <mxGeometry x="0" y="314" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-89" value="fx_rate" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="340" width="270" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-90" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-89">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-91" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;base_ccy varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-89">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-92" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;quote_ccy varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-89">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-93" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;rate numeric(20,10)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-89">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-94" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;source varchar (kursna lista API)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-89">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-95" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;fetched_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-89">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-96" value="processed_event" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="520" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-97" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;consumer varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-96">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-98" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;event_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-96">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-99" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;processed_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-96">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-100" value="outbox_event" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="340" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-101" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-102" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;event_id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-103" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;type varchar (payment.succeeded …)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-104" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;payment_id → payment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-105" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;payload jsonb" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-106" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-107" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;published_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-100">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-108" value="refund" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="270" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-109" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-110" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;payment_id → payment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-111" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;FK attempt_id → payment_attempt" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-112" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(12,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-113" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-114" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;reason varchar (DUPLICATE | ACTIVATION_FAILED | MERCHANT)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-115" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (PENDING | SUCCEEDED | FAILED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-116" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;provider_ref varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-117" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-118" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-108">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-119" value="payment_event" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="720" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-120" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id bigserial" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-121" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;payment_id → payment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-122" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;from_status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-123" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;to_status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-124" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;reason varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-125" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;source varchar (api | webhook | reconciler | expiry-job)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-126" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-119">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-127" value="payment_attempt_event" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="720" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-128" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id bigserial" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-129" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;attempt_id → payment_attempt" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-130" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;from_status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-131" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;to_status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-132" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;reason varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-133" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;source varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-134" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-127">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-135" value="audit_log" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="720" width="270" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-136" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id bigserial" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-137" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;actor_user_id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-138" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;actor_type varchar (USER | SERVICE)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-139" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;action varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-140" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;entity_type varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-141" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;entity_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-142" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;result varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-143" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;source_ip varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-144" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;details jsonb" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-145" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-135">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-146" value="webhook_delivery" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="720" width="270" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-147" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-148" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;event_id → outbox_event.event_id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-149" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;merchant_id → merchant" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-150" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (PENDING | DELIVERED | FAILED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-151" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;attempts int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-152" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;next_attempt_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-153" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;last_error varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-154" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;delivered_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p6-146">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-155" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-14" target="p6-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-156" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-14" target="p6-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-157" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-32" target="p6-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-158" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-39" target="p6-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-159" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-14" target="p6-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-160" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-14" target="p6-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-161" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-55" target="p6-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-162" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-32" target="p6-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-163" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-89" target="p6-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-164" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-55" target="p6-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-165" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-71" target="p6-127">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-166" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-55" target="p6-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-167" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-100" target="p6-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-168" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-14" target="p6-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-169" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-55" target="p6-100">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-170" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-55" target="p6-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-171" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p6-71" target="p6-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-172" value="&lt;b&gt;Pravila&lt;/b&gt;&lt;br&gt;• &lt;i&gt;UNIQUE(merchant_id, merchant_order_id)&lt;/i&gt; sprečava dupli nalog; &lt;i&gt;idempotency_key&lt;/i&gt; vraća isti odgovor na ponovljen zahtev.&lt;br&gt;• Svaki prelaz statusa: &lt;i&gt;UPDATE … WHERE status = ?&lt;/i&gt; + red u &lt;i&gt;payment_event&lt;/i&gt; / &lt;i&gt;payment_attempt_event&lt;/i&gt; u istoj transakciji (sep-05 §60).&lt;br&gt;• Najmanje jedna aktivna metoda po klijentu: proverava servis u transakciji sa zaključanim redom &lt;i&gt;merchant&lt;/i&gt; (predlog)." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="270" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-173" value="&lt;b&gt;Napomene&lt;/b&gt;&lt;br&gt;• &lt;i&gt;outbox_event&lt;/i&gt; se upisuje u istoj transakciji kao promena stanja; dispatcher šalje webhook (retry sa backoff-om) i objavljuje na Kafka. &lt;i&gt;processed_event&lt;/i&gt; čini potrošače Kafka idempotentnim po &lt;i&gt;eventId&lt;/i&gt; (sep-05 §57–§58).&lt;br&gt;• &lt;i&gt;payment_attempt&lt;/i&gt;: jedan red po izabranoj metodi; neuspeo pokušaj ne obara Payment. &lt;i&gt;amount/currency&lt;/i&gt; su iznos klijenta, &lt;i&gt;provider_amount/provider_currency&lt;/i&gt; iznos posle konverzije kursom iz &lt;i&gt;fx_rate&lt;/i&gt; (npr. RSD za IPS QR, kripto za CRYPTO).&lt;br&gt;• &lt;i&gt;stan&lt;/i&gt; + &lt;i&gt;psp_timestamp&lt;/i&gt; + MERCHANT_ID kod banke služe za proveru statusa kad odgovor banke izostane (sep-04 §45). Jedinstvenost STAN-a je predlog.&lt;br&gt;• &lt;i&gt;merchant_method.provider_merchant_id&lt;/i&gt;: MERCHANT_ID koji PSP dobija od banke i ne mora biti isti kao u zahtevu parkinga (sep-04 §45, tabela 2).&lt;br&gt;• &lt;i&gt;audit_log&lt;/i&gt; je samo za dodavanje (REVOKE UPDATE, DELETE); sadrži korisnika, tip događaja, vreme, uspeh/neuspeh, izvor i resurs ([PCI 10.2.2], sep-06 §69). Nikad PAN ni CVV.&lt;br&gt;• Redis (rate limit, nonce, sesije portala) nema tabele i nije ovde." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="340" y="960" width="1290" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-174" value="&lt;b&gt;Legenda&lt;/b&gt;&lt;br&gt;PK primarni ključ · FK strani ključ · UQ jedinstvena vrednost&lt;br&gt;Veza: jedna linija = „jedan“, vilica = „mnogo“, kružić = „može da ne postoji“" style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="960" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-175" value="Izvori: zahtevi sep-04 §43, §45, §49; dizajn sep-05 §57, §60. Tipovi kolona su predlog." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1100" width="900" height="28" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p7" name="3. Model podataka: bank_db">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p7-1" value="Model podataka: bank_db (Banka / Acquirer, faza 2 — PostgreSQL)" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-2" value="bank_customer" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="270" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-3" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-2">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-4" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;username varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-2">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-5" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;password_hash varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-2">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-6" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;full_name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-2">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-7" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-2">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-8" value="bank_account" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="70" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-9" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-10" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;customer_id → bank_customer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-11" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;account_number varchar(18)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-12" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-13" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;available numeric(14,2)  CHECK ≥ 0" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-14" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;reserved numeric(14,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-15" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;version bigint" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-8">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-16" value="card" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="270" height="224" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-17" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-18" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;account_id → bank_account" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-19" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;pan_hash bytea (keyed HMAC)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-20" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;pan_enc bytea" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-21" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;pan_last4 char(4)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-22" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;holder_name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-23" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expiry_month smallint" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-24" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expiry_year smallint" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-25" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;service_code char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-26" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (ACTIVE | BLOCKED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-27" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-16">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-28" value="bank_merchant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="270" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-29" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;merchant_id varchar (MERCHANT_ID kod banke)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-30" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;name varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-31" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;account_id → bank_account (račun prodavca)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-32" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;auth_type varchar (HMAC | CERT)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-33" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;hmac_secret_enc bytea" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-34" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;cert_fingerprint varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-35" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;active boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-28">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-36" value="payment_form" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="270" height="278" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-37" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;payment_id varchar (PAYMENT_ID)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-38" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;merchant_id → bank_merchant" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-39" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;method varchar (CARD | IPS_QR)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-40" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;stan bigint" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-41" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;psp_timestamp timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-42" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(14,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-43" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-44" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (NEW | USED | EXPIRED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-45" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;payment_token_hash varchar (PAYMENT_URL)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-46" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;qr_payload text (samo IPS_QR)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-47" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expires_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-48" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;used_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="224" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-49" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="242" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-50" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;(merchant_id, stan, psp_timestamp)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-36">
+          <mxGeometry x="0" y="260" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-51" value="bank_transaction" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="700" y="340" width="270" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-52" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="26" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-53" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;payment_id → payment_form" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="44" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-54" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;type varchar (RESERVATION | REVERSAL | REFUND)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="62" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-55" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar (SUCCEEDED | FAILED)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="80" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-56" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;account_id → bank_account (platilac)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="98" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-57" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;card_id → card (NULL za QR)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="116" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-58" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;parent_tx_id → bank_transaction" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="134" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-59" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(14,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="152" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-60" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="170" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-61" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;global_transaction_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="188" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-62" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;acquirer_timestamp timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="206" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-63" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;failure_reason varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="224" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-64" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p7-51">
+          <mxGeometry x="0" y="242" width="270" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-65" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-2" target="p7-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-66" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-8" target="p7-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-67" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-8" target="p7-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-68" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-28" target="p7-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-69" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-36" target="p7-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-70" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-8" target="p7-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-71" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p7-16" target="p7-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-72" value="&lt;b&gt;Pravila banke&lt;/b&gt;&lt;br&gt;• Rezervacija je jedan atomski upit: &lt;i&gt;UPDATE bank_account SET available = available − :iznos, reserved = reserved + :iznos WHERE id = :id AND available ≥ :iznos&lt;/i&gt;. Ako nijedan red nije izmenjen, nema sredstava. To sprečava konkurentno plaćanje sa istog računa (sep-05 §61, slučaj 8). Oblik upita je predlog.&lt;br&gt;• Jedna forma = jedna transakcija: parcijalni unique indeks &lt;i&gt;bank_transaction(payment_id) WHERE type = 'RESERVATION'&lt;/i&gt; i prelaz forme &lt;i&gt;NEW → USED&lt;/i&gt; uslovnim UPDATE-om (sep-04 §45, korak 4d).&lt;br&gt;• Status po &lt;i&gt;merchant_id + stan + psp_timestamp&lt;/i&gt; traži se u &lt;i&gt;payment_form&lt;/i&gt;; odgovor nosi &lt;i&gt;global_transaction_id&lt;/i&gt; i &lt;i&gt;acquirer_timestamp&lt;/i&gt; (sep-04 §45).&lt;br&gt;• Za IPS QR, &lt;i&gt;payment_form.qr_payload&lt;/i&gt; je tekst po NBS formatu (sep-04 §53); mobilna banka plaća sa računa ulogovanog klijenta (sep-04 §46).&lt;br&gt;• Prodavčev račun se ne knjiži u fazi 1: rezervacija sredstava završava kupovinu, clearing i settlement nisu potrebni (sep-04 §45).&lt;br&gt;• &lt;i&gt;parent_tx_id&lt;/i&gt;: REVERSAL i REFUND pokazuju na RESERVATION koju poništavaju." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="70" width="600" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-73" value="&lt;b&gt;Podaci o kartici&lt;/b&gt;&lt;br&gt;• PAN je nečitljiv: &lt;i&gt;pan_hash&lt;/i&gt; (keyed heš za pretragu) + &lt;i&gt;pan_enc&lt;/i&gt; (šifrovan); prikaz samo maskiran ([PCI 3.4.1, 3.5.1, 3.5.1.1], sep-06 §65).&lt;br&gt;• CVV se &lt;b&gt;ne čuva&lt;/b&gt; ([PCI 3.3.1.2], sep-06 §65). Banka ga pri proveri ponovo računa iz PAN-a, datuma isteka i servisnog koda tajnim ključem i poredi sa unetim. Tako rade i pravi izdavaoci (opšte znanje, izvor nije otvoren). Ključ je van baze.&lt;br&gt;• Forma banke je jedino mesto gde se unose PAN i CVV; PSP i parking ih ne vide (sep-05 §57)." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="380" width="600" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-74" value="&lt;b&gt;Legenda&lt;/b&gt;&lt;br&gt;PK primarni ključ · FK strani ključ · UQ jedinstvena vrednost&lt;br&gt;Veza: jedna linija = „jedan“, vilica = „mnogo“, kružić = „može da ne postoji“" style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-75" value="Izvori: zahtevi sep-04 §44–§46; dizajn sep-05 §57; PCI DSS sep-06 §65. U fazi 1 banka je mock, ova šema važi za fazu 2. Tipovi kolona su predlog." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="900" height="34" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p8" name="4. Model podataka: plug-in baze">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p8-1" value="Model podataka: baze plug-inova (card_db, paypal_db, crypto_db)" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1200" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-2" value="card_db — Card / IPS QR plug-in" style="rounded=1;whiteSpace=wrap;html=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontStyle=1;fontSize=14;dashed=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="530" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-3" value="paypal_db — PayPal plug-in" style="rounded=1;whiteSpace=wrap;html=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontStyle=1;fontSize=14;dashed=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="600" y="70" width="530" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-4" value="crypto_db — Crypto plug-in" style="rounded=1;whiteSpace=wrap;html=1;arcSize=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontStyle=1;fontSize=14;dashed=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="70" width="490" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-5" value="card_payment" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="235" height="242" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-6" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;attempt_id uuid (iz psp_db)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="26" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-7" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;method varchar (CARD | IPS_QR)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="44" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-8" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;stan bigint" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="62" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-9" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;psp_timestamp timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="80" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-10" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;bank_merchant_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="98" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-11" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;bank_payment_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="116" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-12" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;payment_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="134" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-13" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;qr_payload text" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="152" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-14" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="170" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-15" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;global_transaction_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="188" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-16" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;acquirer_timestamp timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="206" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-17" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-5">
+          <mxGeometry x="0" y="224" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-18" value="callback_inbox" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="315" y="120" width="235" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-19" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id bigserial" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-18">
+          <mxGeometry x="0" y="26" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-20" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;attempt_id → card_payment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-18">
+          <mxGeometry x="0" y="44" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-21" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-18">
+          <mxGeometry x="0" y="62" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-22" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;global_transaction_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-18">
+          <mxGeometry x="0" y="80" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-23" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;received_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-18">
+          <mxGeometry x="0" y="98" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-24" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;(attempt_id, status)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-18">
+          <mxGeometry x="0" y="116" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-25" value="paypal_order" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="620" y="120" width="235" height="224" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-26" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;attempt_id uuid (iz psp_db)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="26" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-27" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;paypal_order_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="44" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-28" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;intent varchar (CAPTURE)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="62" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-29" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="80" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-30" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;amount numeric(12,2)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="98" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-31" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;currency char(3)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="116" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-32" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;payer_action_url varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="134" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-33" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;capture_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="152" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-34" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;refund_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="170" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-35" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;created_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="188" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-36" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-25">
+          <mxGeometry x="0" y="206" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-37" value="paypal_webhook_event" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="875" y="120" width="235" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-38" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;event_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-37">
+          <mxGeometry x="0" y="26" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-39" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;type varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-37">
+          <mxGeometry x="0" y="44" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-40" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;paypal_order_id varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-37">
+          <mxGeometry x="0" y="62" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-41" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;received_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-37">
+          <mxGeometry x="0" y="80" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-42" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;processed_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-37">
+          <mxGeometry x="0" y="98" width="235" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-43" value="hd_wallet" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1175" y="120" width="215" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-44" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;id uuid" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-43">
+          <mxGeometry x="0" y="26" width="215" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-45" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;network varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-43">
+          <mxGeometry x="0" y="44" width="215" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-46" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;asset varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-43">
+          <mxGeometry x="0" y="62" width="215" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-47" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;xpub varchar (javni ključ)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-43">
+          <mxGeometry x="0" y="80" width="215" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-48" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;next_index int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-43">
+          <mxGeometry x="0" y="98" width="215" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-49" value="crypto_payment" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="120" width="225" height="296" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-50" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/span&gt;attempt_id uuid (iz psp_db)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="26" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-51" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/span&gt;wallet_id → hd_wallet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="44" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-52" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;derivation_index int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="62" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-53" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;address varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="80" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-54" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;b&gt;UQ&lt;/b&gt;&lt;/span&gt;(wallet_id, derivation_index)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="98" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-55" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;asset varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="116" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-56" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expected_amount numeric(38,18)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="134" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-57" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;status varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="152" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-58" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;tx_hash varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="170" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-59" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;sender_address varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="188" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-60" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;confirmations int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="206" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-61" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;required_confirmations int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="224" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-62" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;expires_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="242" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-63" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;refund_tx_hash varchar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="260" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-64" value="&lt;span style=&quot;display:inline-block;width:34px&quot;&gt;&lt;/span&gt;updated_at timestamptz" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="p8-49">
+          <mxGeometry x="0" y="278" width="225" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-65" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p8-5" target="p8-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-66" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERzeroToOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p8-25" target="p8-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-67" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=10;html=1;rounded=1;strokeWidth=1.3;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p8-43" target="p8-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-68" value="&lt;b&gt;Napomene&lt;/b&gt;&lt;br&gt;• Svaki plug-in ima svoju bazu; &lt;i&gt;attempt_id&lt;/i&gt; je ID iz &lt;i&gt;psp_db.payment_attempt&lt;/i&gt;. To je logička veza bez stranog ključa, jer su baze odvojene (sep-05 §57).&lt;br&gt;• Kredencijali provajdera postoje samo u odgovarajućem plug-inu (sep-05 napomena u arhitekturi).&lt;br&gt;• &lt;i&gt;card_payment&lt;/i&gt;: status banke se traži po MERCHANT_ID + STAN + PSP_TIMESTAMP (sep-04 §45). &lt;i&gt;callback_inbox&lt;/i&gt; sa &lt;i&gt;UNIQUE(attempt_id, status)&lt;/i&gt; čini obradu istog callback-a idempotentnom (predlog).&lt;br&gt;• &lt;i&gt;paypal_order&lt;/i&gt;: porudžbina ostaje CREATED 3 sata (sep-04 §54); &lt;i&gt;capture_id&lt;/i&gt; je potreban za refund (&lt;i&gt;POST /v2/payments/captures/{capture-id}/refund&lt;/i&gt;, sep-04 §54). Događaji PayPal webhook-a nisu proveravani, zato &lt;i&gt;type&lt;/i&gt; ostaje slobodan tekst.&lt;br&gt;• &lt;i&gt;hd_wallet&lt;/i&gt; čuva samo javni ključ (xpub); privatni ključ nije u bazi ([PCI 3.6.1.2], sep-06 §65). Jedna adresa po plaćanju se izvodi iz &lt;i&gt;derivation_index&lt;/i&gt;.&lt;br&gt;• &lt;b&gt;Otvoreno:&lt;/b&gt; dizajn navodi i Sepolia (Ethereum) i BTC testnet4, a web3j je biblioteka za Ethereum (sep-05 §62). Dok se mreža ne izabere, &lt;i&gt;network&lt;/i&gt; i &lt;i&gt;asset&lt;/i&gt; ostaju kolone.&lt;br&gt;• &lt;i&gt;required_confirmations&lt;/i&gt; je podešavanje; vrednost nije određena specifikacijom." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="1590" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-69" value="&lt;b&gt;Legenda&lt;/b&gt;&lt;br&gt;PK primarni ključ · FK strani ključ · UQ jedinstvena vrednost&lt;br&gt;Veza: jedna linija = „jedan“, vilica = „mnogo“, kružić = „može da ne postoji“" style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-70" value="Izvori: sep-04 §45, §47, §54, §55; dizajn sep-05 §57, §62. Tipovi kolona su predlog." style="shape=note;whiteSpace=wrap;html=1;size=10;align=left;spacingLeft=6;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="900" height="28" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
