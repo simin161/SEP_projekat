@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>rs.sep</groupId>
+        <artifactId>sep-backend</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>sep-plugins</artifactId>
+    <packaging>pom</packaging>
+    <name>sep-plugins</name>
+    <description>Payment plug-ins. Each plug-in is its own service. This pom only holds what all plug-ins share.</description>
+
+    <modules>
+        <module>card-qr-plugin</module>
+        <module>paypal-plugin</module>
+        <module>crypto-plugin</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-restclient</artifactId>
+        </dependency>
+    </dependencies>
+</project>

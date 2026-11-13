@@ -1,0 +1,76 @@
+spring:
+  application:
+    name: psp-core
+  datasource:
+    url: jdbc:postgresql://${PSP_DB_HOST:localhost}:${PSP_DB_PORT:5432}/psp_db
+    username: ${PSP_DB_USER:psp_user}
+    password: ${PSP_DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    locations: classpath:db/migration
+  jackson:
+    time-zone: UTC
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      acks: all
+      properties:
+        enable.idempotence: true
+    consumer:
+      group-id: psp-core-attempts
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+    listener:
+      ack-mode: manual
+
+server:
+  port: ${SERVER_PORT:8082}
+  ssl:
+    enabled: true
+    enabled-protocols: TLSv1.3
+    key-store: ${SSL_KEY_STORE:}
+    key-store-type: PKCS12
+    key-store-password: ${SSL_KEY_STORE_PASSWORD:}
+    client-auth: ${SSL_CLIENT_AUTH:none}
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+logging:
+  structured:
+    format:
+      console: ecs
+  level:
+    root: INFO
+
+sep:
+  kafka:
+    attempt-results-topic: psp.attempt-results
+    registry-events-topic: psp.registry-events
+    registry-group-prefix: psp-registry-
+  fx:
+    api-url: ${FX_API_URL:}

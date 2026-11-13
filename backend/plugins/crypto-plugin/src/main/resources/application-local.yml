@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    password: ${CRYPTO_DB_PASSWORD:crypto_dev}
+
+server:
+  ssl:
+    enabled: false
+
+logging:
+  structured:
+    format:
+      console:

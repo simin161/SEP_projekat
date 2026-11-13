@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    password: ${PAYPAL_DB_PASSWORD:paypal_dev}
+
+server:
+  ssl:
+    enabled: false
+
+logging:
+  structured:
+    format:
+      console:

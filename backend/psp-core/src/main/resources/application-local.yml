@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    password: ${PSP_DB_PASSWORD:psp_dev}
+  data:
+    redis:
+      password: ${REDIS_PASSWORD:redis_dev}
+
+server:
+  ssl:
+    enabled: false
+
+logging:
+  structured:
+    format:
+      console:

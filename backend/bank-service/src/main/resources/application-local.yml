@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    password: ${BANK_DB_PASSWORD:bank_dev}
+
+server:
+  ssl:
+    enabled: false
+
+sep:
+  psp:
+    callback-url: http://localhost:8083
+
+logging:
+  structured:
+    format:
+      console:
