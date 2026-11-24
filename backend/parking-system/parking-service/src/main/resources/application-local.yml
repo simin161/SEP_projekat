@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PARKING_DB_HOST:localhost}:${PARKING_DB_PORT:5433}/parking_db
+    password: ${PARKING_DB_PASSWORD:parking_dev}
+
+server:
+  ssl:
+    enabled: false
+
+sep:
+  psp-client:
+    base-url: http://localhost:8082
+
+logging:
+  structured:
+    format:
+      console:

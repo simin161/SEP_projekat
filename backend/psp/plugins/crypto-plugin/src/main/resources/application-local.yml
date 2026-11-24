@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${CRYPTO_DB_HOST:localhost}:${CRYPTO_DB_PORT:5434}/crypto_db
+    password: ${CRYPTO_DB_PASSWORD:crypto_dev}
+
+server:
+  ssl:
+    enabled: false
+
+logging:
+  structured:
+    format:
+      console:

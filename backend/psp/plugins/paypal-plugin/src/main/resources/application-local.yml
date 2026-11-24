@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PAYPAL_DB_HOST:localhost}:${PAYPAL_DB_PORT:5434}/paypal_db
+    password: ${PAYPAL_DB_PASSWORD:paypal_dev}
+
+server:
+  ssl:
+    enabled: false
+
+logging:
+  structured:
+    format:
+      console:

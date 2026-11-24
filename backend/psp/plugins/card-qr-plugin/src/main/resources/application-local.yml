@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${CARD_DB_HOST:localhost}:${CARD_DB_PORT:5434}/card_db
+    password: ${CARD_DB_PASSWORD:card_dev}
+
+server:
+  ssl:
+    enabled: false
+
+sep:
+  bank:
+    base-url: http://localhost:8086
+
+logging:
+  structured:
+    format:
+      console:
