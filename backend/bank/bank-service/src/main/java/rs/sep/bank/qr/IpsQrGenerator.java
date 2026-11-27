@@ -5,9 +5,9 @@ import java.util.StringJoiner;
 
 public class IpsQrGenerator {
 
-    private static final String IDENTIFICATION_CODE = "PR";
-    private static final String VERSION = "01";
-    private static final String CHARACTER_SET = "1";
+    static final String IDENTIFICATION_CODE = "PR";
+    static final String VERSION = "01";
+    static final String CHARACTER_SET = "1";
     private static final String ALLOWED_CHARS = "A-Za-zČĆŽŠĐčćžšđ0-9 !(/@}“):\\[~#*;\\]„$+<\\^”%,=_\"\\&\\->`’‘.?{'";
     private static final String NAME_REGEX = "[" + ALLOWED_CHARS + "\\r\\n]+";
     private static final String SINGLE_LINE_REGEX = "[" + ALLOWED_CHARS + "]+";
