@@ -24,6 +24,12 @@ import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning
 import rs.sep.mobilebank.ui.theme.MobileBankTheme
+import java.net.URL
+import java.net.HttpURLConnection
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.Dispatchers
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +50,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ScannerScreen(modifier: Modifier = Modifier) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var bankStatus by remember { mutableStateOf<String?>(null) }
     var scannedText by remember { mutableStateOf<String?>(null) }
     var errorText by remember { mutableStateOf<String?>(null) }
 
@@ -73,5 +81,30 @@ fun ScannerScreen(modifier: Modifier = Modifier) {
         }
         scannedText?.let { Text(text = it) }
         errorText?.let { Text(text = it, color = MaterialTheme.colorScheme.error) }
+        Button(onClick = {
+            scope.launch {
+                bankStatus = try {
+                    withContext(Dispatchers.IO) { checkBank() }
+                } catch (e: Exception) {
+                    "Bank error: ${e.message}"
+                }
+            }
+        }) {
+            Text(text = "Check bank")
+        }
+        bankStatus?.let { Text(text = it) }
+    }
+}
+
+private const val BANK_URL = "http://192.168.1.4:8086"
+
+fun checkBank(): String {
+    val connection = URL("$BANK_URL/actuator/health").openConnection() as HttpURLConnection
+    connection.connectTimeout = 5000
+    connection.readTimeout = 5000
+    try {
+        return connection.inputStream.bufferedReader().use { it.readText() }
+    } finally {
+        connection.disconnect()
     }
 }
