@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import rs.sep.parking.dto.RegisterRequest;
 import rs.sep.parking.dto.UserResponse;
-import rs.sep.parking.service.RegistrationService;
+import rs.sep.parking.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
-public class RegistrationController {
+public class AuthController {
 
-    private final RegistrationService registrationService;
+    private final AuthService authService;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponse register(@Valid @RequestBody RegisterRequest request) {
-        return registrationService.register(request);
+        return authService.register(request);
     }
 }

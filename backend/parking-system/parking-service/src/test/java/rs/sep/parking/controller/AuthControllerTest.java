@@ -15,7 +15,7 @@ import rs.sep.parking.exceptions.DuplicateFoundException;
 import rs.sep.parking.config.SecurityConfig;
 import rs.sep.parking.dto.RegisterRequest;
 import rs.sep.parking.dto.UserResponse;
-import rs.sep.parking.service.RegistrationService;
+import rs.sep.parking.service.AuthService;
 
 import java.util.UUID;
 
@@ -28,15 +28,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static rs.sep.parking.common.constants.ErrorMessages.EMAIL_TAKEN;
 
-@WebMvcTest(RegistrationController.class)
+@WebMvcTest(AuthController.class)
 @Import(SecurityConfig.class)
-class RegistrationControllerTest {
+class AuthControllerTest {
 
     @Autowired
     MockMvc mvc;
 
     @MockitoBean
-    RegistrationService registrationService;
+    AuthService registrationService;
 
     @Test
     void registersDriverWithNormalizedEmail() throws Exception {

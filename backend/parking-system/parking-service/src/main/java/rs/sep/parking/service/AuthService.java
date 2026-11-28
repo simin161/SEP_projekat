@@ -16,7 +16,7 @@ import static rs.sep.parking.common.constants.ErrorMessages.EMAIL_TAKEN;
 
 @Service
 @RequiredArgsConstructor
-public class RegistrationService {
+public class AuthService {
 
     private final AppUserRepository users;
     private final PasswordEncoder passwordEncoder;

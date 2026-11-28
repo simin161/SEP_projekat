@@ -15,7 +15,7 @@ import rs.sep.parking.dto.UserResponse;
 import rs.sep.parking.model.AppUser;
 import rs.sep.parking.model.enums.UserRole;
 import rs.sep.parking.repositories.AppUserRepository;
-import rs.sep.parking.service.RegistrationService;
+import rs.sep.parking.service.AuthService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -26,18 +26,18 @@ import static org.mockito.Mockito.verify;
 import static rs.sep.parking.common.constants.ErrorMessages.EMAIL_TAKEN;
 
 @ExtendWith(MockitoExtension.class)
-class RegistrationServiceTest {
+class AuthServiceTest {
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(4);
 
     @Mock
     AppUserRepository users;
 
-    RegistrationService service;
+    AuthService service;
 
     @BeforeEach
     void setUp() {
-        service = new RegistrationService(users, passwordEncoder);
+        service = new AuthService(users, passwordEncoder);
     }
 
     @Test
